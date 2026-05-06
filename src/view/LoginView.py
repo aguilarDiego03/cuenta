@@ -5,7 +5,7 @@ def LoginView(page: ft.Page, auth_controller):
     correo = ft.TextField(
         label="Correo electrónico",
         width=350,
-        bgcolor="#F0F0F0",  # Gris bajo
+        bgcolor="#F0F0F0", 
         border_radius=10,
     )
 
@@ -14,7 +14,7 @@ def LoginView(page: ft.Page, auth_controller):
         password=True,
         can_reveal_password=True,
         width=350,
-        bgcolor="#F0F0F0",  # Gris bajo
+        bgcolor="#F0F0F0",  
         border_radius=10,
     )
     
@@ -45,7 +45,7 @@ def LoginView(page: ft.Page, auth_controller):
     btn_registro = ft.TextButton(
         "¿No tienes cuenta? Regístrate",
         on_click=lambda _: page.go("/register"),
-        style=ft.ButtonStyle(color=ft.Colors.BLACK),  # Texto negro
+        style=ft.ButtonStyle(color=ft.Colors.BLACK),  
     )
     
     contraseña.on_submit = login_click
@@ -70,7 +70,7 @@ def LoginView(page: ft.Page, auth_controller):
                                 btn_registro,
                             ], spacing=15, horizontal_alignment=ft.CrossAxisAlignment.CENTER),
                             padding=30,
-                            bgcolor=ft.Colors.WHITE,  # Fondo blanco de la tarjeta
+                            bgcolor=ft.Colors.WHITE, 
                         ),
                         elevation=5,
                     ),

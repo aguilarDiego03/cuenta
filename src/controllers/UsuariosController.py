@@ -1,8 +1,5 @@
 from models.UsuariosModel import UsuarioModel
 
-# MODIFICACIÓN: Se reformateó el diccionario user con cada llave en línea separada
-# MODIFICACIÓN: Se agregaron saltos de línea para mejor legibilidad
-
 class AuthController:
     def __init__(self):
         self.usuario_model = UsuarioModel()

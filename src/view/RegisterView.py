@@ -62,7 +62,7 @@ def RegisterView(page: ft.Page, auth_controller):
     btn_login = ft.TextButton(
         "¿Ya tienes cuenta? Inicia sesión",
         on_click=ir_login,
-        style=ft.ButtonStyle(color=ft.Colors.BLACK),  # Texto negro
+        style=ft.ButtonStyle(color=ft.Colors.BLACK), 
     )
 
     return ft.View(
@@ -88,7 +88,7 @@ def RegisterView(page: ft.Page, auth_controller):
                                 btn_login,
                             ], spacing=12, horizontal_alignment=ft.CrossAxisAlignment.CENTER),
                             padding=30,
-                            bgcolor=ft.Colors.WHITE,  # Fondo blanco de la tarjeta
+                            bgcolor=ft.Colors.WHITE,
                         ),
                         elevation=5,
                     ),

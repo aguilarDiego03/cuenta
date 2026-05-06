@@ -20,8 +20,8 @@ def DashboardView(page, tarea_controller):
         hora_limite.open = True
         page.update()
     
-    txt_fecha = ft.Text("📅 Fecha: No seleccionada", size=12)
-    txt_hora = ft.Text("⏰ Hora: No seleccionada", size=12)
+    txt_fecha = ft.Text("Fecha: No seleccionada", size=12)
+    txt_hora = ft.Text("Hora: No seleccionada", size=12)
     
     def eliminar_tarea(id_tarea):
         tarea_controller.eliminar_tarea(id_tarea)
@@ -35,9 +35,9 @@ def DashboardView(page, tarea_controller):
             for t in tareas:
                 fecha_info = ""
                 if t.get('fecha_limite'):
-                    fecha_info += f"\n📅 Fecha: {t['fecha_limite']}"
+                    fecha_info += f"\nFecha: {t['fecha_limite']}"
                 if t.get('hora_limite'):
-                    fecha_info += f" ⏰ Hora: {t['hora_limite']}"
+                    fecha_info += f" Hora: {t['hora_limite']}"
                 
                 # Color según prioridad
                 color_prioridad = {
@@ -80,28 +80,28 @@ def DashboardView(page, tarea_controller):
     prioridad = ft.Dropdown(
         label="Prioridad", value="media", width=120, bgcolor="#F0F0F0",
         options=[
-            ft.dropdown.Option("alta", "🔴 Alta"),
-            ft.dropdown.Option("media", "🟡 Media"),
-            ft.dropdown.Option("baja", "🟢 Baja")
+            ft.dropdown.Option("alta", "Alta"),
+            ft.dropdown.Option("media", "Media"),
+            ft.dropdown.Option("baja", "Baja")
         ]
     )
     
     clasificacion = ft.Dropdown(
         label="Clasificación", value="personal", width=130, bgcolor="#F0F0F0",
         options=[
-            ft.dropdown.Option("personal", "👤 Personal"),
-            ft.dropdown.Option("trabajo", "💼 Trabajo"),
-            ft.dropdown.Option("estudio", "📚 Estudio")
+            ft.dropdown.Option("personal", "Personal"),
+            ft.dropdown.Option("trabajo", "Trabajo"),
+            ft.dropdown.Option("estudio", "Estudio")
         ]
     )
     
     estado = ft.Dropdown(
         label="Estado", value="pendiente", width=130, bgcolor="#F0F0F0",
         options=[
-            ft.dropdown.Option("pendiente", "⏳ Pendiente"),
-            ft.dropdown.Option("en_progreso", "▶️ En progreso"),
-            ft.dropdown.Option("completada", "✅ Completada"),
-            ft.dropdown.Option("cancelada", "❌ Cancelada")
+            ft.dropdown.Option("pendiente", "Pendiente"),
+            ft.dropdown.Option("en_progreso", "▶En progreso"),
+            ft.dropdown.Option("completada", "Completada"),
+            ft.dropdown.Option("cancelada", "Cancelada")
         ]
     )
     
@@ -118,23 +118,23 @@ def DashboardView(page, tarea_controller):
             txt_descripcion.value = ""
             fecha_limite.value = None
             hora_limite.value = None
-            txt_fecha.value = "📅 Fecha: No seleccionada"
-            txt_hora.value = "⏰ Hora: No seleccionada"
+            txt_fecha.value = "Fecha: No seleccionada"
+            txt_hora.value = "Hora: No seleccionada"
             cargar_tareas()
             page.update()
     
     def actualizar_fecha(e):
         if fecha_limite.value:
-            txt_fecha.value = f"📅 Fecha: {fecha_limite.value.strftime('%d/%m/%Y')}"
+            txt_fecha.value = f"Fecha: {fecha_limite.value.strftime('%d/%m/%Y')}"
         else:
-            txt_fecha.value = "📅 Fecha: No seleccionada"
+            txt_fecha.value = "Fecha: No seleccionada"
         page.update()
     
     def actualizar_hora(e):
         if hora_limite.value:
-            txt_hora.value = f"⏰ Hora: {hora_limite.value.strftime('%H:%M')}"
+            txt_hora.value = f" Hora: {hora_limite.value.strftime('%H:%M')}"
         else:
-            txt_hora.value = "⏰ Hora: No seleccionada"
+            txt_hora.value = "Hora: No seleccionada"
         page.update()
     
     fecha_limite.on_change = actualizar_fecha
@@ -157,7 +157,7 @@ def DashboardView(page, tarea_controller):
         bgcolor="#57689E",
         controls=[
             ft.AppBar(
-                title=ft.Text(f"📋 SIGE - {user.get('nombre', 'Usuario') if user else 'Usuario'}", color=ft.Colors.WHITE),
+                title=ft.Text(f"SIGE - {user.get('nombre', 'Usuario') if user else 'Usuario'}", color=ft.Colors.WHITE),
                 bgcolor="#57689E",
                 actions=[
                     ft.IconButton(ft.Icons.PERSON, on_click=mostrar_perfil, icon_color=ft.Colors.WHITE),
@@ -170,16 +170,16 @@ def DashboardView(page, tarea_controller):
                     ft.Card(
                         content=ft.Container(
                             content=ft.Column([
-                                ft.Text("➕ Nueva Tarea", size=18, weight="bold"),
+                                ft.Text("Nueva Tarea", size=18, weight="bold"),
                                 ft.Row([txt_titulo, txt_descripcion], spacing=10, wrap=True),
                                 ft.Row([prioridad, clasificacion, estado], spacing=10, wrap=True),
                                 ft.Row([
-                                    ft.ElevatedButton("📅 Fecha", on_click=abrir_calendario, bgcolor="#F0F0F0", color="#333333"),
-                                    ft.ElevatedButton("⏰ Hora", on_click=abrir_reloj, bgcolor="#F0F0F0", color="#333333"),
+                                    ft.ElevatedButton("Fecha", on_click=abrir_calendario, bgcolor="#F0F0F0", color="#333333"),
+                                    ft.ElevatedButton("Hora", on_click=abrir_reloj, bgcolor="#F0F0F0", color="#333333"),
                                     txt_fecha,
                                     txt_hora,
                                 ], spacing=10, wrap=True),
-                                ft.ElevatedButton("💾 Guardar Tarea", on_click=agregar_tarea, bgcolor="#57689E", color=ft.Colors.WHITE),
+                                ft.ElevatedButton("Guardar Tarea", on_click=agregar_tarea, bgcolor="#57689E", color=ft.Colors.WHITE),
                             ], spacing=15),
                             padding=20,
                             bgcolor=ft.Colors.WHITE,
@@ -189,7 +189,7 @@ def DashboardView(page, tarea_controller):
                     
                     ft.Container(height=10),
                     
-                    ft.Text("📌 Mis Tareas", size=18, weight="bold", color=ft.Colors.WHITE),
+                    ft.Text(" Mis Tareas", size=18, weight="bold", color=ft.Colors.WHITE),
                     ft.Container(height=10),
                     
                     ft.Container(

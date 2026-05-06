@@ -7,8 +7,8 @@ from view.DashboardView import DashboardView
 from view.UsuarioView import UserView
 
 def start(page: ft.Page):
-    page.title = "Sistema SIGE"
-    page.bgcolor = "#57689E"  # Solo el fondo azul
+    page.title = "Sistema"
+    page.bgcolor = "#57689E" 
     
     auth_ctrl = AuthController()
     tarea_ctrl = TareaController()
@@ -49,3 +49,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
