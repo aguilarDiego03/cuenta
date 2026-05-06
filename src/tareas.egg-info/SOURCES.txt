@@ -16,5 +16,4 @@ src/tareas.egg-info/top_level.txt
 src/view/DashboardView.py
 src/view/LoginView.py
 src/view/RegisterView.py
-src/view/TareasView.py
 src/view/UsuarioView.py

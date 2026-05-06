@@ -11,7 +11,7 @@ Requires-Dist: mysql-connector-python>=9.6.0
 Requires-Dist: pydantic>=2.12.5
 Requires-Dist: python-dotenv>=1.2.2
 
-# Omar Daniel Ortega Valtierra 
+# Diego Aguilar Bautista
 ## 6D
-## Núm. control: 23308060610674
+## Núm. control: 23308060610084
 ## Especialidad: Programacion
