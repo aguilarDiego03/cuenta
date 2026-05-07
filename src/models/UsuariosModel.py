@@ -8,7 +8,7 @@ class UsuarioModel:
     def email_existe(self, email):
         conn = self.db.get_connection()
         cursor = conn.cursor()
-        query = "SELECT id_usuario FROM usuarios WHERE email = %s"
+        query = "SELECT id_usuario FROM usuario WHERE email = %s"  # ← cambiado
         cursor.execute(query, (email,))
         existe = cursor.fetchone() is not None
         conn.close()
@@ -23,7 +23,7 @@ class UsuarioModel:
         try:
             cursor.execute(
                 """
-                INSERT INTO usuarios (nombre, apellido, email, password) 
+                INSERT INTO usuario (nombre, apellido, email, password)  # ← cambiado
                 VALUES (%s, %s, %s, %s)
                 """,
                 (usuario_data.nombre, usuario_data.apellido, usuario_data.email, hashed_pw.decode('utf-8'))
@@ -39,7 +39,7 @@ class UsuarioModel:
     def validar_login(self, email, password):
         conn = self.db.get_connection()
         cursor = conn.cursor(dictionary=True)
-        query = "SELECT * FROM usuarios WHERE email = %s"
+        query = "SELECT * FROM usuario WHERE email = %s"  # ← cambiado
         cursor.execute(query, (email,))
         user = cursor.fetchone()
         conn.close()
@@ -53,7 +53,7 @@ class UsuarioModel:
         cursor = conn.cursor()
         cursor.execute(
             """
-            UPDATE usuarios 
+            UPDATE usuario  # ← cambiado
             SET ultimo_acceso = NOW() 
             WHERE id_usuario = %s
             """,
@@ -65,7 +65,7 @@ class UsuarioModel:
     def obtener_por_id(self, id_usuario):
         conn = self.db.get_connection()
         cursor = conn.cursor(dictionary=True)
-        query = "SELECT * FROM usuarios WHERE id_usuario = %s"
+        query = "SELECT * FROM usuario WHERE id_usuario = %s"  # ← cambiado
         cursor.execute(query, (id_usuario,))
         user = cursor.fetchone()
         conn.close()
